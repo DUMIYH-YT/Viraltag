@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DUMIYH TIKTOK VIRAL TAG GENERATOR</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            color: white;
+            overflow: hidden;
+            background: linear-gradient(-45deg, #ff0057, #6a00ff, #00ff99, #ff0057);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        input, button {
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 1em;
+            border-radius: 5px;
+            border: none;
+        }
+
+        input {
+            width: 200px;
+        }
+
+        #tagsOutput {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #121212;
+            border-radius: 5px;
+            word-wrap: break-word;
+            max-width: 300px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>DUMIYH TIKTOK VIRAL TAG GENERATOR</h1>
+        
+        <label for="videoKeyword">ENTER VIDEO KEYWORD:</label><br>
+        <input type="text" id="videoKeyword" placeholder="E.G., DUMIYH, WEB SIDE"><br>
+
+        <button onclick="generateTags()">GENERATE TAG</button>
+        <button onclick="copyTags()">COPY TAG</button>
+
+        <div id="tagsOutput"></div>
+    </div>
+
+    <script>
+        function generateTags() {
+            const keyword = document.getElementById("videoKeyword").value.trim().toLowerCase();
+            const tagsOutput = document.getElementById("tagsOutput");
+
+            if (!keyword) {
+                tagsOutput.innerHTML = "Please enter a keyword.";
+                return;
+            }
+
+            const tags = [
+                `#${keyword}`, `#${keyword}challenge`, `#${keyword}funny`, `#${keyword}dance`,
+                `#trending`, `#foryou`, `#fyp`, `#viral`, `#explore`, `#tiktokchallenge`
+            ];
+
+            tagsOutput.innerHTML = `<strong>Generated Tags:</strong><br>${tags.join(" ")}`;
+        }
+
+        function copyTags() {
+            const tagsOutput = document.getElementById("tagsOutput").innerText;
+            
+            if (!tagsOutput || tagsOutput.includes("Please enter")) {
+                alert("No tags to copy. Generate tags first.");
+                return;
+            }
+
+            navigator.clipboard.writeText(tagsOutput.replace("Generated Tags:", "").trim())
+                .then(() => alert("Tags copied to clipboard!"))
+                .catch(() => alert("Failed to copy tags."));
+        }
+    </script>
+</body>
+</html>
+</html>
